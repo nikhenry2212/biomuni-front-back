@@ -1,0 +1,176 @@
+<div *ngIf="load" class="load-container">
+    <app-loading [load]="load"></app-loading>
+
+</div>
+<div *ngIf="!load" class="container-table">
+    <p-table #dt1 [value]="data" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="!loading" styleClass="p-datatable-customers p-datatable-gridlines" [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+        <ng-template pTemplate="header">
+            <tr>
+
+                <th>
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        Country
+                        <p-columnFilter type="text" field="country" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+                <th>
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        Date
+                        <p-columnFilter type="date" field="date" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+                <th>
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        Hour
+                        <p-columnFilter type="text" field="hour" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+
+                <th>
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        Status
+                        <p-columnFilter field="status" matchMode="equals" display="menu">
+                            <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                                <p-dropdown [ngModel]="value" [options]="status" (onChange)="filter($event.value)" placeholder="Any">
+                                    <ng-template let-option pTemplate="item">
+                                        <span [class]="'status-badge status-' + status.value">{{option.label}}</span>
+                                    </ng-template>
+                                </p-dropdown>
+                            </ng-template>
+                        </p-columnFilter>
+                    </div>
+                </th>
+                <th>
+                    <div class="p-d-flex p-jc-between p-ai-center">
+                        Maps
+                        <p-columnFilter type="text" field="hour" display="menu"></p-columnFilter>
+                    </div>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-data>
+            <tr>
+
+                <td style="min-width:100px">
+                    <span class="image-text">{{data.country}} - {{data.city}}</span>
+                    <!-- <span class="image-text">{{country}}</span> -->
+                </td>
+                <td style="min-width:100px">
+                    {{data.date}}
+                    <!-- {{date}} -->
+                </td>
+                <td>
+                    {{data.hour}}
+                    <!-- {{hour}} -->
+                </td>
+
+                <td>
+                    <span class="status-badge-qualified ">{{data.status}}</span>
+                    <!-- <span class="status-badge-qualified ">{{status}}</span> -->
+                </td>
+                <td>
+                    <a class="link-maps" target="_blank" href={{data.urlSprinkler}}>{{data.country}} - {{data.city}} maps {{urlSprinkler}} <i class="pi pi-map-marker"></i></a>
+                    <!-- <span class="status-badge-qualified ">{{status}}</span> -->
+                </td>
+                <!-- <td>
+                    <p-progressBar [value]="customer.activity" [showValue]="false"></p-progressBar>
+                </td> -->
+                <!-- <td class="p-text-center">
+                    <i class="pi" [ngClass]="{'true-icon pi-check-circle': customer.verified, 'false-icon pi-times-circle': !customer.verified}"></i>
+                </td> -->
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="emptymessage">
+            <tr>
+                <td colspan="7">No customers found.</td>
+            </tr>
+        </ng-template>
+    </p-table>
+
+    <div *ngIf="!load" class="container-table">
+
+        <p-table #dt1 [value]="data1" [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="!loading" styleClass="p-datatable-customers p-datatable-gridlines" [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries">
+            <ng-template pTemplate="header">
+                <tr>
+
+                    <th>
+                        <div class="p-d-flex p-jc-between p-ai-center">
+                            Country
+                            <p-columnFilter type="text" field="country" display="menu"></p-columnFilter>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="p-d-flex p-jc-between p-ai-center">
+                            Date
+                            <p-columnFilter type="date" field="date" display="menu"></p-columnFilter>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="p-d-flex p-jc-between p-ai-center">
+                            Hour
+                            <p-columnFilter type="text" field="hour" display="menu"></p-columnFilter>
+                        </div>
+                    </th>
+
+                    <th>
+                        <div class="p-d-flex p-jc-between p-ai-center">
+                            Status
+                            <p-columnFilter field="status" matchMode="equals" display="menu">
+                                <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                                    <p-dropdown [ngModel]="value" [options]="status" (onChange)="filter($event.value)" placeholder="Any">
+                                        <ng-template let-option pTemplate="item">
+                                            <span [class]="'status-badge status-' + status.value">{{option.label}}</span>
+                                        </ng-template>
+                                    </p-dropdown>
+                                </ng-template>
+                            </p-columnFilter>
+                        </div>
+                    </th>
+                    <th>
+                        <div class="p-d-flex p-jc-between p-ai-center">
+                            Maps
+                            <p-columnFilter type="text" field="hour" display="menu"></p-columnFilter>
+                        </div>
+                    </th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-data1>
+                <tr>
+
+                    <td style="min-width:100px">
+                        <span class="image-text">{{data1.country}} - {{data1.city}}</span>
+                        <!-- <span class="image-text">{{country}}</span> -->
+                    </td>
+                    <td style="min-width:100px">
+                        {{data1.date}}
+                        <!-- {{date}} -->
+                    </td>
+                    <td>
+                        {{data1.hour}}
+                        <!-- {{hour}} -->
+                    </td>
+
+                    <td>
+                        <span class="status-badge-unqualified">{{data1.status}}</span>
+                        <!-- <span class="status-badge-qualified ">{{status}}</span> -->
+                    </td>
+                    <td>
+                        <a class="link-maps" target="_blank" href={{data1.urlDrone}}>{{data1.country}} - {{data1.city}} maps  <i class="pi pi-map-marker"></i></a>
+                        <!-- <span class="status-badge-qualified ">{{status}}</span> -->
+                    </td>
+                    <!-- <td>
+                        <p-progressBar [value]="customer.activity" [showValue]="false"></p-progressBar>
+                    </td> -->
+                    <!-- <td class="p-text-center">
+                        <i class="pi" [ngClass]="{'true-icon pi-check-circle': customer.verified, 'false-icon pi-times-circle': !customer.verified}"></i>
+                    </td> -->
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="emptymessage">
+                <tr>
+                    <td colspan="7">No customers found.</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>

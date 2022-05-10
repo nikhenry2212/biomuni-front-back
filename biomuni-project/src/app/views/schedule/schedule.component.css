@@ -1,0 +1,27 @@
+.container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 100px;
+}
+
+.container-calendar {
+    display: flex;
+    width: 60%;
+    max-height: 580px;
+    padding: 2rem;
+    border-radius: 10px;
+    /* box-sizing: border-box; */
+    /* margin-bottom: 2rem; */
+    /* border: #ccc 1px solid; */
+    /* padding: 16px; */
+    /* border-radius: 4px; */
+    box-sizing: border-box;
+    box-shadow: 0.05rem 0.1rem 0.3rem -0.03rem rgba(0, 0, 0, 0.45);
+}
+
+.calendar {
+    display: flex;
+    flex-direction: column;
+    font-size: 1em;
+    width: 100%;
+}

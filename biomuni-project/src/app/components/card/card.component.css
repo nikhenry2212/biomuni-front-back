@@ -1,0 +1,23 @@
+.card-container {
+    box-shadow: 0 0 1em rgba(146, 219, 153, 0.822);
+    cursor: pointer;
+}
+
+.p-card {
+    text-align: center;
+}
+
+.p-card p {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.card-container:hover {
+    opacity: 0.9;
+}
+
+.p-card i:hover {
+    color: #0caec4;
+    transition: all 0.5s ease;
+    z-index: 99;
+}

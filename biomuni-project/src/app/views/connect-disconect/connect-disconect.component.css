@@ -1,0 +1,33 @@
+.load-container {
+    display: flex;
+    padding: 10px;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.container-table {
+    height: 100%;
+}
+
+.status-badge-qualified {
+    background-color: #c8e6c9;
+    color: #256029;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.status-badge-unqualified {
+    background-color: #ffcdd2;
+    color: #c63737;
+    padding: 4px;
+    border-radius: 4px;
+}
+
+.link-maps {
+    text-decoration: none;
+    /* border: solid 1px #050505; */
+    padding: 4px;
+    background-color: #599ddd;
+    color: #fff;
+    border-radius: 8px;
+}

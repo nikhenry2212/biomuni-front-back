@@ -1,0 +1,36 @@
+<p-toast></p-toast>
+<!-- <p-messages style="margin-bottom: -73px;" [value]="msgs"></p-messages> -->
+<form class="form-group" [formGroup]="formWeather" (ngSubimt)="getWeather()">
+    <span class="p-input-icon-left">
+        <i class="pi pi-search"></i>
+        <input type="text" formControlName="region" pInputText placeholder="Search">
+        <button style="margin-left: 8px;"iconPos="left" icon="pi pi-arrow-right" pButton type="submit" (click)="getWeather()"></button>
+    </span>
+</form>
+<div class="container-loading" *ngIf="loading">
+    <p-progressSpinner [style]="{width: '50px', height: '50px'}">
+    </p-progressSpinner>
+</div>
+<div class="container" *ngIf="res && containerInfo">
+    <div class="container-temp">
+        <div class="hour">
+            <h3 ([onChanges])="hourCurrent()">{{ hour }}</h3>
+            <div class="container-temperatura">
+                <img class="img-icon" [src]="url" alt="icon">
+                <p>{{description}}</p>
+            </div>
+            <p class="temp"> {{temp}}°</p>
+            <span>{{date}}</span>
+        </div>
+    </div>
+
+</div>
+<div class="localizacao" *ngIf="res && containerInfo">
+    <p>{{city}}-{{country}}</p>
+</div>
+<div class="container-button">
+    <button pButton type="button" *ngIf="res && containerInfo" (click)="openModalConfirmation()" icon="pi pi-power-off" iconPos="left" label="Ativar drone" class="p-button-success"></button>
+</div>
+<!-- <p-messages severity="warn" [(values)]="error" [enableService]="false"></p-messages> -->
+<p *ngIf="alertErro">city not found - cidade não encontrada</p>
+<p-confirmDialog [style]="{width: '50vw'}" [baseZIndex]="10000"></p-confirmDialog>
